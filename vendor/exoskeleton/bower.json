@@ -1,0 +1,44 @@
+{
+  "name": "exoskeleton",
+  "main": "exoskeleton.js",
+  "version": "0.6.3",
+  "homepage": "https://github.com/paulmillr/exoskeleton",
+  "author": {
+    "name": "Paul Miller",
+    "url": "http://paulmillr.com"
+  },
+  "description": "Faster and leaner Backbone for your HTML5 apps.",
+  "keywords": [
+    "Backbone",
+    "Exoskeleton",
+    "MVC",
+    "client",
+    "browser",
+    "model",
+    "view",
+    "controller"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "~2.0.0",
+    "underscore": "~1.5.2",
+    "qunit": "~1"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "lib",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "gitHead": "97999b6f5e15b774b475d0e53e9aa21ea77841de",
+  "readme": "# Exoskeleton\n\nExoskeleton is a faster and leaner Backbone for your HTML5 apps.\n\nhttp://exosjs.com\n\n## What already works\nAll features you need for real-world app are working.\nAll software tests are passing: (libs = underscore and jquery)\n\n* Backbone: **with and without** libs\n* [Chaplin](http://chaplinjs.org): **with and without** libs\n\nMarionette and other popular plugins: WIP.\n\n## Building\n\nDefault **and custom** builds:\n\n    make # Will create exoskeleton.js\n    make noutils # If you want to use Underscore and jQuery\n                 # and don't want to include `Exoskeleton.utils`.\n    make min     # Minified version.\n    # Custom, like this:\n    cat lib/{header,events,collection,sync,history,footer}.js > exoskeleton.js\n\n## Features\n\n* Custom builds\n* No hard dependencies on underscore or jquery\n* Support for Bower and [Component(1)](https://github.com/component/component)\n* AMD support\n* Speed: blazing fast when used without jQuery.\n\nAlso:\n\n* Router with query string support\n* `View#delegateEvents` has `keepOld` option that allows to preserve old events.\n* All params are allowed for model attributes, for example `model.get('constructor')` [(jashkenas/backbone#1495)](https://github.com/jashkenas/backbone/issues/1495)\n* Ultra-fast event delegation via native `utils.delegate` method.\n* Native `View#find` and `View#findAll` DOM search methods.\n* Event triggering on disposed objects is [20 times faster](http://jsperf.com/exoskeleton-events-vs-backbone-events)\n* `Backbone.Deferred` overridable method for custom promise libraries or DOM promises\n* `View#useNative` property. Works great if you want to include jQuery and still use native methods for some views. Just set it to `true` in them.\n\n## Differences\n\n* When jQuery is not used, you must use `event.delegateTarget` instead of `event.currentTarget` for event delegation. This is because `currentTarget` is not overridable on native non-jQuery events.\n* Declaratively defined view events which point to\n  non-existing handler functions are no longer tolerated / skipped.\n  Early error is thrown instead.\n* In no-underscore environment, there are no underscore-inspired\n  Collection methods (each, pluck etc.), but there are ES5-inspired methods:\n\n  `forEach, map, filter, some, every, reduce, reduceRight, indexOf, lastIndexOf`\n\n  Also, no underscore-inspired Model methods at all.\n\n* emulateHTTP and emulateJSON were removed\n",
+  "readmeFilename": "README.md",
+  "_id": "exoskeleton@0.6.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paulmillr/exoskeleton.git"
+  }
+}

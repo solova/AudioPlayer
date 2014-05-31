@@ -1,0 +1,75 @@
+<!doctype html><title>webaudio example: histo3d</title>
+
+<script src="vendor/tquery/build/tquery-bundle.js"></script>
+
+<script src="../src/webaudio.core.js"></script>
+<script src="../src/webaudio.nodechainbuilder.js"></script>
+<script src="../src/webaudio.sound.js"></script>
+
+<body><script>
+	// var element	= document.createElement('audio')
+	// element.src	= 'sounds/techno.mp3';
+	var element	= document.createElement('video')
+	element.src	= 'videos/sintel.ogv'
+
+	element.controls= true;
+	element.autoplay= true;
+	element.loop	= true;
+
+	element.style.position	='absolute'
+	//element.style.display	= 'none'
+	document.body.appendChild(element);
+
+
+
+	var webaudio	= new WebAudio();	
+
+	var world	= tQuery.createWorld().boilerplate().start();
+	
+	world.tRenderer().setClearColorHex( 0x000000, world.tRenderer().getClearAlpha() );
+
+	tQuery.createAmbientLight().addTo(world).color(0x888888);
+	tQuery.createDirectionalLight().addTo(world).position(+1,+1,1).color(0x88FF88);
+	tQuery.createDirectionalLight().addTo(world).position(-1,-1, 1).color(0x8888FF);
+
+	element.addEventListener('canplaythrough', function(event){
+		var nodesChain	= WebAudio.NodeChainBuilder.create(webaudio.context())
+			.mediaElementSource(element)
+			.gainNode().analyser().panner()
+		var sound	= WebAudio.Sound.create(webaudio, nodesChain);
+
+
+		// # Some constants
+		var nBar	= 41*4;
+		var barW	= 80/nBar;
+		var bars3d	= [];
+
+		// # Create the 3D
+
+		// create the container group3D which gonna regroup all the bar3D
+		var group3d	= tQuery.createObject3D().scale(1/20).addTo(world);
+		for(var i = 0; i < nBar; i++){
+			var bar3d	= tQuery.createCube(barW, 10, 5, new THREE.MeshLambertMaterial({
+				ambient	: 0x888888,
+				color	: 0xFFFFFF
+			}));
+			bar3d.addTo(group3d).position((i-nBar/2)*barW, 0, 0);
+			bars3d.push(bar3d);
+		}
+		
+		// # Update Vuemeter
+		
+		// Here we hook a function to tQuery rendering loop, ```tQuery.Loop```. Thus
+		// this function gonna be executed everytime our 3D scene is rendered.
+		world.loop().hook(function(){
+			var nBarHalf	= Math.ceil(nBar/2)
+			var histo	= sound.makeHistogram(nBarHalf);
+			bars3d.forEach(function(bar3d, barIdx){
+				var histoIdx		= barIdx < nBarHalf ? nBarHalf-1-barIdx : barIdx - nBarHalf;
+				var height		= histo[histoIdx] / 256;
+				bar3d.get(0).scale.y	= height*3 + 0.001;
+				bar3d.get(0).material.color.setHSL(0.3+height*0.7,1,0.5)
+			});
+		});
+	});
+</script></body>

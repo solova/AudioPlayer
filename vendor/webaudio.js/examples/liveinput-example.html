@@ -1,0 +1,35 @@
+<!doctype html><title>Minimal tQuery Page</title>
+<script src="vendor/tquery/build/tquery-bundle.js"></script>
+
+<script src="../src/webaudio.core.js"></script>
+<script src="../src/webaudio.nodechainbuilder.js"></script>
+<script src="../src/webaudio.sound.js"></script>
+<script src="../src/plugins/webaudio.tquery.js"></script>
+<script src="../src/plugins/webaudio.sound.three.js"></script>
+<script src="../src/plugins/webaudio.sound.tquery.js"></script>
+
+<!--
+<script src="../build/webaudio-bundle.js"></script>
+-->
+
+<body><script>
+	var world	= tQuery.createWorld().boilerplate().start();
+
+	//world.removeCameraControls();
+	world.enableWebAudio();
+
+	var object3d	= tQuery.createTorus().addTo(world);
+	tQuery.createAxis().addTo(object3d);
+
+	navigator.webkitGetUserMedia( {audio:true}, function(stream) {
+		var context	= world.getWebAudio().context();
+console.log('log', stream)
+		var nodesChain	= new WebAudio.NodeChainBuilder(context)
+			.mediaStreamSource(stream)
+			.gainNode()
+			.analyser()
+			.panner();
+
+		var sound	= tQuery.createSound(world, nodesChain).follow(object3d, world);
+	});
+</script></body>

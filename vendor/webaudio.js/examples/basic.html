@@ -1,0 +1,12 @@
+<!doctype html><title>webaudio.js basic</title>
+<script src="../build/webaudio.js"></script>
+<body><script>
+	// init the library
+	var webaudio	= new WebAudio();
+	// create a sound
+	var sound	= webaudio.createSound();
+	// load sound.wav and play it
+	sound.load('sounds/perfume.mp3', function(sound){
+		sound.loop(true).play();
+	});
+</script></body>

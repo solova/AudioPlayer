@@ -1,0 +1,34 @@
+<!doctype html><title>using jsfx.js and webaudio.js</title>
+<!-- include webaudio.js  -->
+<script src="../../build/webaudio.js"></script>
+<!-- include the .js files for jsfx.js -->
+<script src="../vendor/jsfx/audio.js"></script>
+<script src="../vendor/jsfx/jsfx.js"></script>
+<script src="../vendor/jsfx/jsfxlib.js"></script>
+<!-- Now lets start -->
+<body><script>
+	// init the library
+	var webaudio	= new WebAudio();
+	// create a sound 
+	var sound	= webaudio.createSound();
+
+	// generate the data with jsfx
+	// tune your own [here](http://egonelbre.com/js/jsfx/)
+	var lib		= ["noise",0.0000,0.4000,0.0000,0.1780,0.5550,0.1420,20.0000,100.0000,2400.0000,0.0000,0.0000,0.0000,0.0100,0.0003,0.0000,0.0000,0.0000,0.0000,0.0000,0.7024,0.2980,-0.2220,1.0000,0.0000,0.0000,0.0000,0.0000];
+	var lib		= ["noise",0.0000,0.4000,0.0000,0.1000,0.7980,0.1820,20.0000,1225.0000,2400.0000,-0.2760,0.0000,0.0000,0.0100,0.0003,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,1.0000,0.0000,0.0000,0.0000,0.0000];
+	var lib		= ["noise",0.0000,0.4000,0.0000,0.1180,0.5820,0.1840,20.0000,153.0000,2400.0000,0.0000,0.0000,0.0000,0.0100,0.0003,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,1.0000,0.0000,0.0000,0.0000,0.0000];
+	var params	= jsfxlib.arrayToParams(lib);
+	var data	= jsfx.generate(params);
+	
+	var buffer	= webaudio.context().createBuffer(1, data.length, 44100);
+	var fArray	= buffer.getChannelData(0);
+	for(var i = 0; i < fArray.length; i++){
+		fArray[i]	= data[i];
+	}
+	// set the buffer
+	sound.buffer(buffer);
+	sound.loop(true);
+	// play the sound
+	sound.play();
+</script>
+</body>

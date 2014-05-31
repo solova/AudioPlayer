@@ -1,0 +1,9 @@
+{
+  "name": "webaudio.js",
+  "version": "0.0.0",
+  "commit": "2abf6dcd555b059126ffcef94be3b543f45093ed",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jeromeetienne/webaudio.js.git"
+  }
+}

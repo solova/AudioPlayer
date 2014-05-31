@@ -1,0 +1,41 @@
+body {
+    padding: 2em;
+}
+
+progress {
+    width: 100%;
+    display: block;
+    margin: .5em 0;
+}
+
+progress.amplitude {
+    height: 3px;
+}
+
+input.eq-range {
+    -webkit-appearance: slider-vertical;
+    height: 100px;
+}
+
+div.eq-value {
+    text-align: center;
+    font-family: monospace;
+    text-indent: 20px;
+    font-size: x-large;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.center {
+    text-align: center;
+}
+
+#file{
+	opacity: 0.3;
+}

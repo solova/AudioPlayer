@@ -1,0 +1,23 @@
+{
+  "name": "Audio Player",
+  "version": "0.0.1",
+  "authors": [
+    "Aleksandr Solovey <xelbox@gmail.com>"
+  ],
+  "description": "Audio player with equalizer and visualizer",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "dependencies": {
+      "exoskeleton": "*",
+      "fontawesome": "*",
+      "jquery": "*",
+      "lodash": "*",
+      "purecss": "*",
+      "requirejs": "*",
+      "requirejs-text": "*",
+      "reset-css": "*",
+      "webaudio.js": "git@github.com:jeromeetienne/webaudio.js.git"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "underscore",
+  "version": "1.6.0",
+  "main": "underscore.js",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "ignore": [
+    "underscore-min.js",
+    "docs",
+    "test",
+    "*.yml",
+    "*.map",
+    "CNAME",
+    "index.html",
+    "favicon.ico",
+    "CONTRIBUTING.md"
+  ],
+  "gitHead": "1f4bf626f23a99f7a676f5076dc1b1475554c8f7",
+  "readme": "                       __\n                      /\\ \\                                                         __\n     __  __    ___    \\_\\ \\     __   _ __   ____    ___    ___   _ __    __       /\\_\\    ____\n    /\\ \\/\\ \\ /' _ `\\  /'_  \\  /'__`\\/\\  __\\/ ,__\\  / ___\\ / __`\\/\\  __\\/'__`\\     \\/\\ \\  /',__\\\n    \\ \\ \\_\\ \\/\\ \\/\\ \\/\\ \\ \\ \\/\\  __/\\ \\ \\//\\__, `\\/\\ \\__//\\ \\ \\ \\ \\ \\//\\  __/  __  \\ \\ \\/\\__, `\\\n     \\ \\____/\\ \\_\\ \\_\\ \\___,_\\ \\____\\\\ \\_\\\\/\\____/\\ \\____\\ \\____/\\ \\_\\\\ \\____\\/\\_\\ _\\ \\ \\/\\____/\n      \\/___/  \\/_/\\/_/\\/__,_ /\\/____/ \\/_/ \\/___/  \\/____/\\/___/  \\/_/ \\/____/\\/_//\\ \\_\\ \\/___/\n                                                                                  \\ \\____/\n                                                                                   \\/___/\n\nUnderscore.js is a utility-belt library for JavaScript that provides\nsupport for the usual functional suspects (each, map, reduce, filter...)\nwithout extending any core JavaScript objects.\n\nFor Docs, License, Tests, and pre-packed downloads, see:\nhttp://underscorejs.org\n\nUnderscore is an open-sourced component of DocumentCloud:\nhttps://github.com/documentcloud\n\nMany thanks to our contributors:\nhttps://github.com/jashkenas/underscore/contributors\n",
+  "readmeFilename": "README.md",
+  "_id": "underscore@1.6.0",
+  "description": "__                       /\\ \\                                                         __      __  __    ___    \\_\\ \\     __   _ __   ____    ___    ___   _ __    __       /\\_\\    ____     /\\ \\/\\ \\ /' _ `\\  /'_  \\  /'__`\\/\\  __\\/ ,__\\  / ___\\ / __`\\/\\  __\\/'__`\\     \\/\\ \\  /',__\\     \\ \\ \\_\\ \\/\\ \\/\\ \\/\\ \\ \\ \\/\\  __/\\ \\ \\//\\__, `\\/\\ \\__//\\ \\ \\ \\ \\ \\//\\  __/  __  \\ \\ \\/\\__, `\\      \\ \\____/\\ \\_\\ \\_\\ \\___,_\\ \\____\\\\ \\_\\\\/\\____/\\ \\____\\ \\____/\\ \\_\\\\ \\____\\/\\_\\ _\\ \\ \\/\\____/       \\/___/  \\/_/\\/_/\\/__,_ /\\/____/ \\/_/ \\/___/  \\/____/\\/___/  \\/_/ \\/____/\\/_//\\ \\_\\ \\/___/                                                                                   \\ \\____/                                                                                    \\/___/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jashkenas/underscore.git"
+  }
+}

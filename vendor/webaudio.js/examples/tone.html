@@ -1,0 +1,16 @@
+<!doctype html><title>webaudio.js basic</title>
+<script src="../src/webaudio.core.js"></script>
+<script src="../src/webaudio.nodechainbuilder.js"></script>
+<script src="../src/webaudio.sound.js"></script>
+<body><script>
+	// init the library
+	var webaudio	= new WebAudio();
+	// create a sound 
+	var sound	= webaudio.createSound();
+	// set a tone and play it
+	var instance	= sound.tone(200, 0.1).loop(true).play();
+
+	setTimeout(function(){
+		instance.stop()
+	}, 2000)
+</script></body>
