@@ -42,7 +42,6 @@ define([
         },
 
         blockVisibility: function () {
-            console.log(this.model.toJSON());
             if (typeof this.equalizer !== 'undefined') {
                 this.equalizer.$el.toggle(this.model.get('equalizer'));
             }
@@ -53,7 +52,7 @@ define([
         },
 
         renderPlayer: function () {
-            console.log('renderPlayer', arguments);
+
             this.player = new PlayerView({
                 model: this.audio
             });

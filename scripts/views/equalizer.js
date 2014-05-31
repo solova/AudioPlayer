@@ -25,7 +25,7 @@ define([
                 .toggleClass('red', value < 0)
                 .toggleClass('green', value > 0);
             if (event.type === 'change') { //якщо це остаточна позиція слайдеру
-                console.log('changed');
+
                 var eq = this.model.get('eq');
                 eq[$parent.index()] = value;
                 this.model.set('eq', eq);
