@@ -22,7 +22,7 @@ define([
         template: _.template(template),
 
         initialize: function () {
-
+            _.bindAll(this, 'count');
             this.listenTo(this.model, 'change:volume', this.changeVolume);
             return this;
         },
@@ -37,15 +37,26 @@ define([
             this.model.get('sound').volume(parseFloat(this.model.get('volume')));
         },
 
+        /*кривий лічильник часу - не вдалося поки що знайти необхідний івент*/
+        count: function(){
+            if (typeof this.instance !== 'undefined') {
+                var time = Math.ceil((+ new Date() - this.start) / 1000);
+                this.$('progress').attr('value', time);
+                setTimeout(this.count, 900);
+            }
+        },
+
         play: function () {
             var that = this;
             if (typeof this.instance === 'undefined') {
                 this.instance = this.model.get('sound').play();
                 this.model.get('sound').equalize(this.model.get('eq'));
                 this.model.get('sound').volume(this.model.get('volume'));
+                this.start = new Date();
                 this.instance.node.onended = function () {
                     delete that.instance;
                 }
+                this.count();
             }
         },
 

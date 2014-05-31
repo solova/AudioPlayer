@@ -53,6 +53,8 @@ define([
 
         renderPlayer: function () {
 
+            this.$el.removeClass('loading');
+
             this.player = new PlayerView({
                 model: this.audio
             });
@@ -76,6 +78,7 @@ define([
 
         render: function () {
             this.$el.html(this.template());
+            this.$el.addClass('loading');
 
             var menu = new MenuView({
                 model: this.model

@@ -276,7 +276,7 @@ define([], function () {
     WebAudio.NodeChainBuilder.prototype.cloneBufferSource = function () {
         console.assert(this._nodes.bufferSource, "no buffersource presents. Add one.");
         var orig = this._nodes.bufferSource;
-        var clone = this._context.createBufferSource()
+        var clone = this._context.createBufferSource();
         clone.buffer = orig.buffer;
         clone.playbackRate = orig.playbackRate;
         clone.loop = orig.loop;
